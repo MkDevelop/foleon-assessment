@@ -61,6 +61,7 @@ function Publications({}) {
       )}
       <>
         <Select
+          data-testid={"select-filter"}
           showSearch
           style={{ width: 200 }}
           placeholder="Select a filter"
@@ -74,6 +75,7 @@ function Publications({}) {
         </Select>
 
         <Search
+          data-testid={"search"}
           placeholder="Search"
           value={keywords}
           allowClear
@@ -81,10 +83,18 @@ function Publications({}) {
           onChange={onSearchChange}
           style={{ width: 200 }}
         />
-        <Button disabled={!field || !keywords} onClick={onFilter}>
+        <Button
+          data-testid={"filter-button"}
+          disabled={!field || !keywords}
+          onClick={onFilter}
+        >
           Filter
         </Button>
-        <Button disabled={!field || !keywords} onClick={clearFilters}>
+        <Button
+          data-testid={"clear-filters"}
+          disabled={!field || !keywords}
+          onClick={clearFilters}
+        >
           Clear filters
         </Button>
         {status === "success" && data && data.title.length === 0 && (
@@ -92,6 +102,7 @@ function Publications({}) {
         )}
         {!isFetching && status === "success" && data && data.title.length > 0 && (
           <List
+            data-testid="list"
             grid={{
               gutter: 16,
               xs: 1,
@@ -100,6 +111,11 @@ function Publications({}) {
               lg: 4,
               xl: 6,
               xxl: 3,
+            }}
+            pagination={{
+              showSizeChanger: true,
+              pageSizeOptions: ["5", "10", "100", "1000"],
+              position: "both",
             }}
             dataSource={data.title}
             renderItem={(item: Publications) => (

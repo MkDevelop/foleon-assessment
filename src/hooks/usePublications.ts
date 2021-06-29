@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import getToken from "../auth/getToken";
-import axios from "axios";
+import api from "../api/Api";
 import qs from "qs";
 
 interface Filter {
@@ -16,7 +16,7 @@ const getPublications = async (filter: [Filter] | {}) => {
     query: filter,
   });
 
-  const { data } = await axios.get(
+  const { data } = await api.get(
     `${process.env.REACT_APP_API_URL}/magazine/title?${query}`,
     {
       headers: {
@@ -25,6 +25,7 @@ const getPublications = async (filter: [Filter] | {}) => {
       },
     }
   );
+
   return data._embedded;
 };
 
