@@ -18,14 +18,12 @@ function Publications({}) {
   const [filter, setFilter] = useState({});
 
   const { status, data, refetch, isFetching } = usePublications(filter);
-
   function onFieldChange(value: any) {
     setField(value);
     console.log(`selected ${value}`);
   }
 
   function onSearch(val: any) {
-    console.log("search:", val);
     if (val === "") setFilter({});
   }
 
@@ -102,7 +100,7 @@ function Publications({}) {
         )}
         {!isFetching && status === "success" && data && data.title.length > 0 && (
           <List
-            data-testid="list"
+            data-testid="publications-list"
             grid={{
               gutter: 16,
               xs: 1,
@@ -119,7 +117,7 @@ function Publications({}) {
             }}
             dataSource={data.title}
             renderItem={(item: Publications) => (
-              <List.Item>
+              <List.Item data-testid="publications-list">
                 <Card title={item.name}>
                   <p>name: {item.name}</p>
                   <p>id: {item.id}</p>
