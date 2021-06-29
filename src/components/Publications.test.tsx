@@ -93,7 +93,7 @@ describe("Component: Publications", () => {
     expect(filter).toBeInTheDocument();
   });
 
-  test("renders data", async () => {
+  test("renders publication data", async () => {
     const queryClient = new QueryClient({
       defaultOptions: {
         queries: {
