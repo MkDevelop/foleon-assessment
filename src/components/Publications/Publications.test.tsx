@@ -3,7 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import Publications from './Publications';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { LocalStorageMock } from '@react-mock/localstorage';
-import mockData from '../mocks/mockData';
+import mockData from '../../mocks/mockData';
 
 describe('Component: Publications', () => {
   test('renders filters', async () => {

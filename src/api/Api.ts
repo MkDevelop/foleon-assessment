@@ -12,7 +12,7 @@ instance.interceptors.response.use(
   (response) => response,
   async (error) => {
     if (error.response.status === 401) {
-      const token = await getToken();
+      await getToken();
     }
   }
 );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from 'antd';
-import Publications from '../components/Publications';
+import Publications from '../components/Publications/Publications';
 
 const { Header, Footer, Content } = Layout;
 

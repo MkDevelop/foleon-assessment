@@ -9,6 +9,13 @@ export interface Filter {
   value: string;
 }
 
+export interface Publication {
+  id: string;
+  name: string;
+  identifier?: string;
+  hostname?: string;
+}
+
 const getPublications = async (filter: [Filter] | {}) => {
   const token = localStorage.getItem('token');
   const accessToken = token ? token : await getToken();
