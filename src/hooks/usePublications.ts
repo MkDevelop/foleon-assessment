@@ -1,7 +1,7 @@
-import { useQuery } from "react-query";
-import getToken from "../auth/getToken";
-import api from "../api/Api";
-import qs from "qs";
+import { useQuery } from 'react-query';
+import getToken from '../auth/getToken';
+import api from '../api/Api';
+import qs from 'qs';
 
 interface Filter {
   field: string;
@@ -10,7 +10,7 @@ interface Filter {
 }
 
 const getPublications = async (filter: [Filter] | {}) => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   const accessToken = token ? token : await getToken();
   const query = qs.stringify({
     query: filter,
@@ -20,8 +20,8 @@ const getPublications = async (filter: [Filter] | {}) => {
     `${process.env.REACT_APP_API_URL}/magazine/title?${query}`,
     {
       headers: {
-        Authorization: "Bearer " + accessToken,
-        Accept: "application/vnd.becky.v2+json",
+        Authorization: 'Bearer ' + accessToken,
+        Accept: 'application/vnd.becky.v2+json',
       },
     }
   );
@@ -30,5 +30,5 @@ const getPublications = async (filter: [Filter] | {}) => {
 };
 
 export default function usePublications(filter: [Filter] | {}) {
-  return useQuery(["pubs"], () => getPublications(filter));
+  return useQuery(['pubs'], () => getPublications(filter));
 }

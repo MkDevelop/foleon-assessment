@@ -1,6 +1,6 @@
-import React from "react";
-import Main from "./pages/Main";
-import { QueryClient, QueryClientProvider } from "react-query";
+import React from 'react';
+import Main from './pages/Main';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient();
 

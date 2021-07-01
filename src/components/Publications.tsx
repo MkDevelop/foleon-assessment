@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import usePublications from "../hooks/usePublications";
-import "antd/dist/antd.css";
-import { Spin, Space, List, Card, Select, Input, Button } from "antd";
+import React, { useState, useEffect } from 'react';
+import usePublications from '../hooks/usePublications';
+import 'antd/dist/antd.css';
+import { Spin, Space, List, Card, Select, Input, Button } from 'antd';
 const { Option } = Select;
 const { Search } = Input;
 
@@ -13,8 +13,8 @@ export interface Publications {
 }
 
 function Publications({}) {
-  const [keywords, setKeywords] = useState("");
-  const [field, setField] = useState("");
+  const [keywords, setKeywords] = useState('');
+  const [field, setField] = useState('');
   const [filter, setFilter] = useState({});
 
   const { status, data, refetch, isFetching } = usePublications(filter);
@@ -24,7 +24,7 @@ function Publications({}) {
   }
 
   function onSearch(val: any) {
-    if (val === "") setFilter({});
+    if (val === '') setFilter({});
   }
 
   function onSearchChange(event: any) {
@@ -35,7 +35,7 @@ function Publications({}) {
     setFilter([
       {
         field: field,
-        type: "like",
+        type: 'like',
         value: keywords,
       },
     ]);
@@ -43,7 +43,7 @@ function Publications({}) {
 
   const clearFilters = () => {
     setFilter({});
-    setKeywords("");
+    setKeywords('');
   };
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function Publications({}) {
       )}
       <>
         <Select
-          data-testid={"select-filter"}
+          data-testid={'select-filter'}
           showSearch
           style={{ width: 200 }}
           placeholder="Select a filter"
@@ -73,7 +73,7 @@ function Publications({}) {
         </Select>
 
         <Search
-          data-testid={"search"}
+          data-testid={'search'}
           placeholder="Search"
           value={keywords}
           allowClear
@@ -82,23 +82,23 @@ function Publications({}) {
           style={{ width: 200 }}
         />
         <Button
-          data-testid={"filter-button"}
+          data-testid={'filter-button'}
           disabled={!field || !keywords}
           onClick={onFilter}
         >
           Filter
         </Button>
         <Button
-          data-testid={"clear-filters"}
+          data-testid={'clear-filters'}
           disabled={!field || !keywords}
           onClick={clearFilters}
         >
           Clear filters
         </Button>
-        {status === "success" && data && data.title.length === 0 && (
+        {status === 'success' && data && data.title.length === 0 && (
           <p>No results</p>
         )}
-        {!isFetching && status === "success" && data && data.title.length > 0 && (
+        {!isFetching && status === 'success' && data && data.title.length > 0 && (
           <List
             data-testid="publications-list"
             grid={{
@@ -112,8 +112,8 @@ function Publications({}) {
             }}
             pagination={{
               showSizeChanger: true,
-              pageSizeOptions: ["5", "10", "100", "1000"],
-              position: "both",
+              pageSizeOptions: ['5', '10', '100', '1000'],
+              position: 'both',
             }}
             dataSource={data.title}
             renderItem={(item: Publications) => (
