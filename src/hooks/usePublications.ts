@@ -36,6 +36,8 @@ const getPublications = async (filter: [Filter] | {}) => {
   return data._embedded;
 };
 
-export default function usePublications(filter: [Filter] | {}) {
+const usePublications = (filter: [Filter] | {}) => {
   return useQuery(['pubs'], () => getPublications(filter));
-}
+};
+
+export default usePublications;
