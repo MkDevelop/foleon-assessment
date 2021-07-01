@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-mock/localstorage": "^0.1.2",
     "antd": "^4.16.5",
     "axios": "^0.21.1",
     "qs": "^6.10.1",
@@ -39,6 +38,7 @@
   },
   "devDependencies": {
     "@types/qs": "^6.9.6",
+    "@react-mock/localstorage": "^0.1.2",
     "@types/styled-components": "^5.1.10",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
