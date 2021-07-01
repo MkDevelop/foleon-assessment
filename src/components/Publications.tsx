@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import usePublications from '../hooks/usePublications';
+import usePublications, { Filter } from '../hooks/usePublications';
 import 'antd/dist/antd.css';
 import { Spin, Space, List, Card, Select, Input, Button } from 'antd';
 const { Option } = Select;
@@ -32,13 +32,12 @@ function Publications({}) {
   }
 
   const onFilter = () => {
-    setFilter([
-      {
-        field: field,
-        type: 'like',
-        value: keywords,
-      },
-    ]);
+    const newFilter: Filter = {
+      field: field,
+      type: 'like',
+      value: keywords,
+    };
+    setFilter([newFilter]);
   };
 
   const clearFilters = () => {

@@ -3,7 +3,7 @@ import getToken from '../auth/getToken';
 import api from '../api/Api';
 import qs from 'qs';
 
-interface Filter {
+export interface Filter {
   field: string;
   type: string;
   value: string;
